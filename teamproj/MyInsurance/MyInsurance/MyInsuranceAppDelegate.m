@@ -2,7 +2,7 @@
 //  MyInsuranceAppDelegate.m
 //  MyInsurance
 //
-//  Created by Michael Hari on 4/17/13.
+//  Created by Michael Hari, Shariq on 4/17/13.
 //  Copyright (c) 2013 San Jose State University. All rights reserved.
 //
 
