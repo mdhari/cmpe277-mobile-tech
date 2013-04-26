@@ -5,7 +5,7 @@
 //  Created by Michael Hari, Rahul, Shariq on 4/17/13.
 // 
 //  Copyright (c) 2013 San Jose State University. All rights reserved.
-//
+// App uses d09a17 background
 
 #import "MyInsuranceViewController.h"
 
