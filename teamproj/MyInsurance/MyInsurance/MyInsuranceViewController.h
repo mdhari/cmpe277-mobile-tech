@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MyInsuranceViewController : UIViewController
+- (IBAction)Submit:(id)sender;
 
+- (IBAction)Cancel:(id)sender;
 @end

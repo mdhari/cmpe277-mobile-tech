@@ -23,6 +23,7 @@
 		4CDF53DB171F5D9E00591C39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF53DA171F5D9E00591C39 /* Default-568h@2x.png */; };
 		4CDF53DE171F5D9E00591C39 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF53DC171F5D9E00591C39 /* MainStoryboard.storyboard */; };
 		4CDF53E1171F5D9E00591C39 /* MyInsuranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF53E0171F5D9E00591C39 /* MyInsuranceViewController.m */; };
+		C50B3A3F172C9830009517A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50B3A3E172C9830009517A3 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		4CDF53DD171F5D9E00591C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4CDF53DF171F5D9E00591C39 /* MyInsuranceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInsuranceViewController.h; sourceTree = "<group>"; };
 		4CDF53E0171F5D9E00591C39 /* MyInsuranceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInsuranceViewController.m; sourceTree = "<group>"; };
+		C50B3A3D172C9830009517A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C50B3A3E172C9830009517A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				4CDF53DF171F5D9E00591C39 /* MyInsuranceViewController.h */,
 				4CDF53E0171F5D9E00591C39 /* MyInsuranceViewController.m */,
 				4CDF53CB171F5D9E00591C39 /* Supporting Files */,
+				C50B3A3D172C9830009517A3 /* LoginViewController.h */,
+				C50B3A3E172C9830009517A3 /* LoginViewController.m */,
 			);
 			path = MyInsurance;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				4CDF53D1171F5D9E00591C39 /* main.m in Sources */,
 				4CDF53D5171F5D9E00591C39 /* MyInsuranceAppDelegate.m in Sources */,
 				4CDF53E1171F5D9E00591C39 /* MyInsuranceViewController.m in Sources */,
+				C50B3A3F172C9830009517A3 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
