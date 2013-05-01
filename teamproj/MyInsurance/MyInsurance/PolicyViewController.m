@@ -101,8 +101,7 @@
     switch([indexPath section]){
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"driverCell" forIndexPath:indexPath];
-            label = (UILabel *)[cell viewWithTag:1];
-            label.text=[self.policy.drivers[indexPath.row] fullName];
+            cell.textLabel.text=[self.policy.drivers[indexPath.row] fullName];
             
 //            label = (UILabel *)[cell viewWithTag:2];
 //            label.text=[self.policy.drivers[indexPath.row] licenseId];

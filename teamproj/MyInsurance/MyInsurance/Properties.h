@@ -10,9 +10,9 @@
 #define MyInsurance_Properties_h
 
 //dev
-#define BASE_WEBSERVICE_URL @"http://localhost:8080/MyInsuranceWS/rest"
+//#define BASE_WEBSERVICE_URL @"http://localhost:8080/MyInsuranceWS/rest"
 //production
-//#define BASE_WEBSERVICE_URL @"http://ec2-50-112-209-82.us-west-2.compute.amazonaws.com:8080/MyInsuranceWS/rest"
+#define BASE_WEBSERVICE_URL @"http://ec2-50-112-209-82.us-west-2.compute.amazonaws.com:8080/MyInsuranceWS/rest"
 
 
 #endif

@@ -502,6 +502,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -527,12 +528,14 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
 		4CDF53E5171F5D9E00591C39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MyInsurance/GoogleMaps-iOS-1.2.2\"",
@@ -545,6 +548,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MyInsurance/ZBarSDK\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -554,6 +558,7 @@
 		4CDF53E6171F5D9E00591C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MyInsurance/GoogleMaps-iOS-1.2.2\"",
@@ -566,6 +571,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MyInsurance/ZBarSDK\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
