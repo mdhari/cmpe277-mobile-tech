@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *modelField;
 @property (weak, nonatomic) IBOutlet UITextField *yearField;
 @property (strong,nonatomic) NSMutableData *responseData;
-@property (weak, nonatomic) IBOutlet UITextField *policyField;
 
 @property (strong, nonatomic) NSString *vin;
 - (IBAction)addVehicle:(id)sender;

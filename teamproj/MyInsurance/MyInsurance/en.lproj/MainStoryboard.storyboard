@@ -197,7 +197,7 @@
                                             <rect key="frame" x="10" y="1" width="267" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Drivers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lez-Iw-c39">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Driver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lez-Iw-c39">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -220,7 +220,7 @@
                                             <rect key="frame" x="10" y="0.0" width="267" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Vehicles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7g-yI-uhN">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Vehicle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7g-yI-uhN">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,22 +555,12 @@
                                     <action selector="addVehicle:" destination="NDQ-Sx-F40" eventType="touchUpInside" id="uEj-wG-GfZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWL-UR-Tm0">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fco-Mh-H37">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lCw-yf-vZO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8aR-Jj-JBE"/>
                             <constraint firstAttribute="trailing" secondItem="Jku-NN-JNa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8d3-qf-17u"/>
                             <constraint firstItem="GU3-No-f1K" firstAttribute="top" secondItem="vcA-v4-SLc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Dba-gs-42W"/>
-                            <constraint firstAttribute="bottom" secondItem="fco-Mh-H37" secondAttribute="bottom" constant="158" id="G3p-Y3-zRl"/>
                             <constraint firstItem="lCw-yf-vZO" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GPO-Yd-dkO"/>
                             <constraint firstItem="GU3-No-f1K" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JKO-bv-esr"/>
                             <constraint firstAttribute="trailing" secondItem="cWC-GY-ceP" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LfU-7l-eCr"/>
@@ -578,11 +568,8 @@
                             <constraint firstItem="cYc-RB-4if" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OMO-2r-fWc"/>
                             <constraint firstItem="cWC-GY-ceP" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PPd-DS-QRh"/>
                             <constraint firstItem="kX8-77-M0B" firstAttribute="top" secondItem="yAS-U3-h5d" secondAttribute="top" constant="14" id="PR6-Wk-yl1"/>
-                            <constraint firstItem="XWL-UR-Tm0" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Q2j-tv-JNM"/>
+                            <constraint firstItem="RAb-eB-xqk" firstAttribute="centerX" secondItem="GU3-No-f1K" secondAttribute="centerX" type="default" id="Rly-K2-pma"/>
                             <constraint firstItem="vcA-v4-SLc" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="T2d-P3-oOx"/>
-                            <constraint firstAttribute="trailing" secondItem="fco-Mh-H37" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="TN6-u4-oXt"/>
-                            <constraint firstItem="fco-Mh-H37" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XQf-kN-OFD"/>
-                            <constraint firstItem="fco-Mh-H37" firstAttribute="top" secondItem="XWL-UR-Tm0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YJp-yW-9FV"/>
                             <constraint firstItem="lCw-yf-vZO" firstAttribute="top" secondItem="QNf-7q-gO0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bpi-Xd-Fdf"/>
                             <constraint firstItem="QNf-7q-gO0" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iya-Qg-gbV"/>
                             <constraint firstAttribute="bottom" secondItem="RAb-eB-xqk" secondAttribute="bottom" constant="56" id="njS-kx-xPa"/>
@@ -590,7 +577,6 @@
                             <constraint firstItem="vcA-v4-SLc" firstAttribute="top" secondItem="cWC-GY-ceP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oaV-lX-wxL"/>
                             <constraint firstItem="cWC-GY-ceP" firstAttribute="top" secondItem="cYc-RB-4if" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pjP-y4-SnG"/>
                             <constraint firstItem="Jku-NN-JNa" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="t8o-Uo-Fic"/>
-                            <constraint firstItem="RAb-eB-xqk" firstAttribute="centerX" secondItem="fco-Mh-H37" secondAttribute="centerX" type="default" id="tI7-9q-wtD"/>
                             <constraint firstItem="cYc-RB-4if" firstAttribute="top" secondItem="lCw-yf-vZO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="u3z-lk-zGG"/>
                             <constraint firstItem="kX8-77-M0B" firstAttribute="leading" secondItem="yAS-U3-h5d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="v2L-oc-wFy"/>
                             <constraint firstItem="QNf-7q-gO0" firstAttribute="top" secondItem="Jku-NN-JNa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zLO-BI-XbW"/>
@@ -599,7 +585,7 @@
                     <navigationItem key="navigationItem" title="Vehicle Info" id="N6E-0m-TRp"/>
                     <connections>
                         <outlet property="makeField" destination="lCw-yf-vZO" id="HZI-Ud-O1X"/>
-                        <outlet property="policyField" destination="fco-Mh-H37" id="aaC-1J-DF1"/>
+                        <outlet property="modelField" destination="lCw-yf-vZO" id="rAB-ji-7JI"/>
                         <outlet property="vintext" destination="Jku-NN-JNa" id="FjE-1D-Ibc"/>
                         <outlet property="yearField" destination="GU3-No-f1K" id="8At-Mg-rL8"/>
                     </connections>
@@ -659,7 +645,6 @@
                 <relationship kind="action" name="addVehicle:"/>
                 <relationship kind="outlet" name="makeField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="modelField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="policyField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="vintext" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="yearField" candidateClass="UITextField"/>
             </relationships>

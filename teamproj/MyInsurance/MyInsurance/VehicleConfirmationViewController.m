@@ -15,7 +15,7 @@
 
 @implementation VehicleConfirmationViewController
 @synthesize vin,vintext;
-@synthesize modelField,makeField,yearField,responseData, policyField;
+@synthesize modelField,makeField,yearField,responseData;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,18 +47,18 @@
 
 - (IBAction)addVehicle:(id)sender {
    // curl -X POST "http://ec2-50-112-209-82.us-west-2.compute.amazonaws.com:8080/MyInsuranceWS/rest/vehicle?make=ford&model=MustangGT&year=2011&vin=1234567890qwertyz&policyNumber=1543186046"
-
+    NSLog(@"vin:%@",self.vin);
     NSURL *url = [NSURL URLWithString:BASE_WEBSERVICE_URL];
     NSString   *urlString = [url absoluteString];
     NSString *make = self.makeField.text;
     NSString *model = self.modelField.text;
     NSString  *year = self.yearField.text;
-    NSString *policyNumber = self.policyField.text;
-    NSString *newUrl = [urlString stringByAppendingFormat:@"/vehicle?make=%@&model=%@&year=%@&vin=%@&policyNumber=%@",make,model,year,self.vin,policyNumber];
+    NSString *policyNumber = [[NSUserDefaults standardUserDefaults] valueForKey:@"policyNumber"];
+    NSString *newUrl = [urlString stringByAppendingFormat:@"/vehicle?make=%@&model=%@&year=%@&vin=%@&policyNumber=%@",make,model,year,self.vintext.text,policyNumber];
     NSURL *aurl = [NSURL URLWithString:newUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aurl];
     [request setHTTPMethod:@"POST"];
-    
+    NSLog(@"url:%@",newUrl);
     NSHTTPURLResponse* urlResponse = nil;
     NSError *error = [[NSError alloc] init];
     [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
@@ -67,6 +67,7 @@
         [self displayAlert:@"Error from Webservice"];
     }else{
         [self displayAlert:@"Successfully added this vehicle to your policy. You can find it under View Policy on the Main Menu!"];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
