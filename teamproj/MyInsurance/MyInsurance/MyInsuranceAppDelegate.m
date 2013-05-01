@@ -7,12 +7,14 @@
 //
 
 #import "MyInsuranceAppDelegate.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation MyInsuranceAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [GMSServices provideAPIKey:@"AIzaSyBkmJ8VxcTXLbBN2xP6rRVP4f5w3CZYZIw"];
     return YES;
 }
 							

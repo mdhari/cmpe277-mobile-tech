@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<NSXMLParserDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTxtField;
-
+@property (nonatomic) BOOL policyNumElementFound;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTxtField;
+- (IBAction)login:(id)sender;
 @end

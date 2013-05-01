@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MyInsuranceViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *emailTxtField;
+
+@property (strong, nonatomic) IBOutlet UITextField *passwordTxtField;
+
 - (IBAction)Submit:(id)sender;
 
 - (IBAction)Cancel:(id)sender;
