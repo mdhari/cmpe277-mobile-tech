@@ -52,6 +52,7 @@
 		4CF0E5DC17312F6300B2EBA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF0E5D117312F6200B2EBA0 /* MapKit.framework */; };
 		4CF0E5DD17312F6300B2EBA0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF0E5D217312F6200B2EBA0 /* OpenGLES.framework */; };
 		4CF0E5DE17312F6300B2EBA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF0E5D317312F6200B2EBA0 /* SystemConfiguration.framework */; };
+		4CF0E6501731364D00B2EBA0 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF0E64F1731364D00B2EBA0 /* GoogleMaps.framework */; };
 		C50B3A3F172C9830009517A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50B3A3E172C9830009517A3 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		4CF0E5D117312F6200B2EBA0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4CF0E5D217312F6200B2EBA0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4CF0E5D317312F6200B2EBA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4CF0E64F1731364D00B2EBA0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "MyInsurance/GoogleMaps-iOS-1.2.2/GoogleMaps.framework"; sourceTree = "<group>"; };
 		C50B3A3D172C9830009517A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C50B3A3E172C9830009517A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF0E6501731364D00B2EBA0 /* GoogleMaps.framework in Frameworks */,
 				4CF0E5D417312F6200B2EBA0 /* CoreData.framework in Frameworks */,
 				4CF0E5D517312F6200B2EBA0 /* CoreLocation.framework in Frameworks */,
 				4CF0E5D617312F6200B2EBA0 /* CoreText.framework in Frameworks */,
@@ -220,6 +223,7 @@
 		4CDF53C3171F5D9E00591C39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CF0E64F1731364D00B2EBA0 /* GoogleMaps.framework */,
 				4CF0E5C917312F6100B2EBA0 /* CoreData.framework */,
 				4CF0E5CA17312F6100B2EBA0 /* CoreLocation.framework */,
 				4CF0E5CB17312F6100B2EBA0 /* CoreText.framework */,
