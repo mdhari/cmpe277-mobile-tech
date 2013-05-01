@@ -353,15 +353,19 @@ public class MyInsuranceAPI {
 					"Certificates.p12",(String)prop.get("certPass"), "AppleWorldwideDeveloperRelationsCertificationAuthority.pem");
 			byte[] passZipAsByteArray = PKSigningUtil.createSignedAndZippedPkPassArchive(pass, context.getRealPath("/") + "/WEB-INF/GenericCard", pkSigningInformation);
 			
-//			snmail.username=cmpe277spring2013@gmail.com
-//					snmail.password=spartan123
-//					snmail.smtp.auth=true
-//					snmail.smtp.starttls.enable=true
-//					snmail.smtp.host=smtp.gmail.com
-//					snmail.smtp.port=587
-//					snmail.recipientlist=michaeldhari@gmail.com
+			EntityManager em1 = DatabaseUtil.getEM();
+			em1.getTransaction().begin();
+			Query query1 = em1.createQuery("select x from Users x where x.policy_number="+policyNumber);
+			List<Users> usersList=query1.getResultList();
+			String email = null;
+			for(Users users:usersList){
+				email = users.getUsername();
+			}
+			em1.getTransaction().commit();
+			em1.close();
+			
 			EmailClient emailClient = new EmailClient("cmpe277spring2013@gmail.com", "spartan123", "true",
-					"true", "smtp.gmail.com", "587","michaeldhari@gmail.com");
+					"true", "smtp.gmail.com", "587",email);
 			
 			
 			FileOutputStream fos = new FileOutputStream(context.getRealPath("/")+"myinsurance-"+policyNumber+".pkpass");
