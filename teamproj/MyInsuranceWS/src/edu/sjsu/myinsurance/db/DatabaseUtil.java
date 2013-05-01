@@ -4,24 +4,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 public class DatabaseUtil {
-	public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
-			"MyInsuranceWS");
-	
-	public static <T> void commitObject(T object){
-	
+	public static EntityManagerFactory entityManagerFactory = Persistence
+			.createEntityManagerFactory("MyInsuranceWS");
+
+	public static <T> boolean commitObject(T object) {
+
+		boolean success = true;
+		EntityManager em = entityManagerFactory.createEntityManager();
+		try {
 			
-			EntityManager em = entityManagerFactory.createEntityManager();
 			em.getTransaction().begin();
-			em.persist(object);    
+			em.persist(object);
 			em.getTransaction().commit();
 			em.close();
-	
+		} catch (Exception e) {
+			e.printStackTrace();
+			success = false;
+		}
+
+		return success;
 
 	}
-	
-	public static EntityManager getEM(){
+
+	public static EntityManager getEM() {
 		return entityManagerFactory.createEntityManager();
 	}
 }

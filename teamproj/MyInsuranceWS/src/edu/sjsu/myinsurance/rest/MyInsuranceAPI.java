@@ -3,7 +3,6 @@ package edu.sjsu.myinsurance.rest;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.KeyStoreException;
@@ -89,28 +88,40 @@ public class MyInsuranceAPI {
 	
 	@Path("/register")
 	@POST
-	public void addUser(@QueryParam("email") String email,
+	public Response addUser(@QueryParam("email") String email,
 			@QueryParam("password") String password){
 
+		if(email.isEmpty() || password.isEmpty())
+			throw new WebApplicationException(400);
+		
 		int policyNumber = Math.abs((int)UUID.randomUUID().getLeastSignificantBits());
 		System.out.println("====Register====");
 		System.out.println("email: " + email);
 		System.out.println("password: " + password);
 		System.out.println("policyNumber: " + policyNumber);
-		System.out.println("====END Register====");
+		
 		
 		Users user = new Users();
 		user.setUsername(email);
 		user.setPassword(password);
 		user.setPolicy_number(policyNumber);
 		
-		DatabaseUtil.commitObject(user);
+		boolean result = DatabaseUtil.commitObject(user);
+		
+		System.out.println("result: " + result);
+		
+		System.out.println("====END Register====");
+		
+		if(!result)
+			throw new WebApplicationException(400);
+		
+		return Response.status(200).build();
 		
 	}
 	
 	@Path("/vehicle")
 	@POST
-	public void addVehicle(@QueryParam("make") String make,
+	public Response addVehicle(@QueryParam("make") String make,
 			@QueryParam("model") String model,
 			@QueryParam("year") int year,
 			@QueryParam("vin") String vin,
@@ -121,7 +132,7 @@ public class MyInsuranceAPI {
 		System.out.println("model: " + model);
 		System.out.println("year: " + year);
 		System.out.println("vin: " + vin);
-		System.out.println("===END Add Vehicle===");
+		
 		
 		Vehicles vehicle = new Vehicles();
 		vehicle.setMake(make);
@@ -130,7 +141,12 @@ public class MyInsuranceAPI {
 		vehicle.setVin(vin);
 		vehicle.setPolicy_number(policyNumber);
 		
-		DatabaseUtil.commitObject(vehicle);
+		boolean result = DatabaseUtil.commitObject(vehicle);
+		System.out.println("===END Add Vehicle===");
+		if(!result)
+			throw new WebApplicationException(400);
+		
+		return Response.status(200).build();
 		
 		
 		
@@ -138,7 +154,7 @@ public class MyInsuranceAPI {
 	
 	@Path("/driver")
 	@POST
-	public void addDriver(@QueryParam("licenseId") String licenseId,
+	public Response addDriver(@QueryParam("licenseId") String licenseId,
 			@QueryParam("fullName") String fullName,
 			@QueryParam("address1") String address1,
 			@QueryParam("address2") String address2,
@@ -157,7 +173,7 @@ public class MyInsuranceAPI {
 		System.out.println("state:" + state);
 		System.out.println("zipcode: " + zipcode);
 		System.out.println("dob: " + dob);
-		System.out.println("=====END Add Driver=====");
+		
 		
 		Drivers driver = new Drivers();
 		driver.setLicense_id(licenseId);
@@ -175,7 +191,13 @@ public class MyInsuranceAPI {
 		}
 		driver.setPolicy_number(policyNumber);
 		
-		DatabaseUtil.commitObject(driver);
+		boolean result = DatabaseUtil.commitObject(driver);
+		System.out.println("=====END Add Driver=====");
+		if(!result)
+			throw new WebApplicationException(400);
+		
+		return Response.status(200).build();
+		
 		
 	}
 	
