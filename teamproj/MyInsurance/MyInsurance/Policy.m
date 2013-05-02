@@ -9,6 +9,7 @@
 #import "Policy.h"
 #import "Properties.h"
 #import "Driver.h"
+#import "Vehicle.h"
 
 @implementation Policy
 
@@ -31,15 +32,7 @@
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    //<driver>
-    //<address1>123 Fake Street</address1>
-    //<city>San Leandro</city>
-    //<dob>12/12/2013</dob>
-    //<full_name>Michael David Hari</full_name>
-    //<license_id>D2345151</license_id>
-    //<state>CA</state>
-    //<zipcode>94579</zipcode>
-    //</driver>
+    
     if([elementName isEqualToString:@"driver"]){
         self.inDriverTag=YES;
         self.driver = [[Driver alloc]init];
@@ -74,18 +67,99 @@ if([elementName isEqualToString:@"zipcode"]){
     self.inZipcodeTag=YES;
     
 }
+    if([elementName isEqualToString:@"vehicle"]){
+        self.inVehicleTAG=YES;
+        self.vehicle = [[Vehicle alloc] init];
+    }
 
+    if([elementName isEqualToString:@"make"]){
+        self.inMakeTAG=YES;
+    }
+    
+    if([elementName isEqualToString:@"model"]){
+        self.inModelTAG=YES;
+    }
+    if([elementName isEqualToString:@"vin"]){
+        self.inVinTAG=YES;
+    }
+    if([elementName isEqualToString:@"year"]){
+        self.inYearTAG=YES;
+    }
+    
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
     if([elementName isEqualToString:@"driver"]){
         [self.drivers addObject:self.driver];
+        self.inDriverTag=NO;
+    }
+    
+    if ([elementName isEqualToString:@"address1"]) {
+        self.inAddr1Tag=NO;
+    }
+    
+    if([elementName isEqualToString:@"city"]){
+        self.inCityTag=NO;
+    }
+    
+    if([elementName isEqualToString:@"dob"]){
+        self.inDOBTag=NO;
+    }
+    
+    if([elementName isEqualToString:@"full_name"]){
+        self.inFullNameTag=NO;
+    }
+    
+    if([elementName isEqualToString:@"license_id"]){
+        self.inLicenseIdTag=NO;
+        
+    }
+    
+    if([elementName isEqualToString:@"state"]){
+        self.inStateTag=NO;
+        
+    }
+    
+    if([elementName isEqualToString:@"zipcode"]){
+        self.inZipcodeTag=NO;
+        
+    }
+    
+    if([elementName isEqualToString:@"vehicle"]){
+        [self.vehicles addObject:self.vehicle];
+        self.inVehicleTAG=NO;
+    }
+    
+    if ([elementName isEqualToString:@"make"]) {
+        self.inMakeTAG=NO;
+    }
+    
+    if([elementName isEqualToString:@"model"]){
+        self.inModelTAG=NO;
+    }
+    
+    if([elementName isEqualToString:@"vin"]){
+        self.inVinTAG=NO;
+    }
+    
+    if([elementName isEqualToString:@"year"]){
+        self.inYearTAG=NO;
     }
 }
 
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    
+    //<driver>
+    //<address1>123 Fake Street</address1>
+    //<city>San Leandro</city>
+    //<dob>12/12/2013</dob>
+    //<full_name>Michael David Hari</full_name>
+    //<license_id>D2345151</license_id>
+    //<state>CA</state>
+    //<zipcode>94579</zipcode>
+    //</driver>
     if(self.inAddr1Tag)
         self.driver.address1=string;
     
@@ -96,8 +170,9 @@ if([elementName isEqualToString:@"zipcode"]){
     if(self.inCityTag)
         self.driver.city=string;
         
-    if(self.inFullNameTag)
+    if(self.inFullNameTag){
         self.driver.fullName=string;
+    }
     
     if(self.inLicenseIdTag)
         self.driver.licenseId=string;
@@ -106,7 +181,19 @@ if([elementName isEqualToString:@"zipcode"]){
         self.driver.state=string;
         
     if(self.inZipcodeTag)
-        self.driver.zipcode=string;
+        self.driver.zipcode=[string intValue];
+    
+    if(self.inMakeTAG)
+        self.vehicle.make=string;
+    
+    if(self.inModelTAG)
+        self.vehicle.model=string;
+    
+    if(self.inVinTAG)
+        self.vehicle.vin=string;
+    
+    if(self.inYearTAG)
+        self.vehicle.year=[string intValue];
     
 }
 
@@ -125,7 +212,7 @@ if([elementName isEqualToString:@"zipcode"]){
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
-    
+    NSLog(@"url:%@",webserviceURL);
     NSHTTPURLResponse* urlResponse = nil;
     NSError *error = [[NSError alloc] init];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
@@ -136,6 +223,9 @@ if([elementName isEqualToString:@"zipcode"]){
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
         xmlParser.delegate=self;
         [xmlParser parse];
+        for(Driver *aDriver in self.drivers){
+            NSLog(@"%@ %@ %@ %@",aDriver.fullName,aDriver.dob,aDriver.state,aDriver.city);
+        }
     }
     
     

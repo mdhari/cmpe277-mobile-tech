@@ -31,16 +31,19 @@
     [super viewDidLoad];
     
     self.policy = [[Policy alloc]init];
-    Vehicle *vehicle = [[Vehicle alloc] init];
-    vehicle.make=@"Ford";
-    vehicle.model=@"MustageGT";
-    vehicle.year=2011;
-    vehicle.vin=@"123551asdfasdf";
-    [self.policy.vehicles addObject:vehicle];
+//    Vehicle *vehicle = [[Vehicle alloc] init];
+//    vehicle.make=@"Ford";
+//    vehicle.model=@"MustageGT";
+//    vehicle.year=2011;
+//    vehicle.vin=@"123551asdfasdf";
+//    [self.policy.vehicles addObject:vehicle];
+//    
+//    Driver *driver = [[Driver alloc]init];
+//    driver.fullName=@"Michael David Hari";
+//    [self.policy.drivers addObject:driver];
     
-    Driver *driver = [[Driver alloc]init];
-    driver.fullName=@"Michael David Hari";
-    [self.policy.drivers addObject:driver];
+    [self.policy getDataFromWebService];
+    [self.tableView reloadData];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -96,11 +99,11 @@
     
     UITableViewCell *cell;
     //cell.textLabel.text=@"test";
-    UILabel *label;
+
     
     switch([indexPath section]){
         case 0:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"driverCell" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"simpleCell" forIndexPath:indexPath];
             cell.textLabel.text=[self.policy.drivers[indexPath.row] fullName];
             
 //            label = (UILabel *)[cell viewWithTag:2];
@@ -119,7 +122,7 @@
 //            label.text=[@([self.policy.drivers[indexPath.row] zipcode]) stringValue];
             break;
         case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"vehicleCell" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"simpleCell" forIndexPath:indexPath];
             cell.textLabel.text=[self.policy.vehicles[indexPath.row] make];
             break;
     }

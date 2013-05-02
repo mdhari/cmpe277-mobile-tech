@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Driver.h"
+#import "Vehicle.h"
 
 @interface Policy : NSObject<NSXMLParserDelegate>
 
@@ -33,6 +34,19 @@
 @property(nonatomic) BOOL inLicenseIdTag;
 @property(nonatomic) BOOL inStateTag;
 @property(nonatomic) BOOL inZipcodeTag;
+
+//<vehicle>
+//<make>Nissan</make>
+//<model>Nissan</model>
+//<vin>WMEAJ00F76J2509df</vin>
+//<year>2010</year>
+//</vehicle>
+@property(strong,nonatomic) Vehicle *vehicle;
+@property(nonatomic) BOOL inVehicleTAG;
+@property(nonatomic) BOOL inMakeTAG;
+@property(nonatomic) BOOL inModelTAG;
+@property(nonatomic) BOOL inVinTAG;
+@property(nonatomic) BOOL inYearTAG;
 
 -(void)getDataFromWebService;
 
