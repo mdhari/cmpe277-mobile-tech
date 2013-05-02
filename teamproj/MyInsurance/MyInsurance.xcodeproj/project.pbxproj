@@ -14,6 +14,7 @@
 		4C5248631730B7980022617C /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5248621730B7980022617C /* PolicyViewController.m */; };
 		4C5248661730B80D0022617C /* Policy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5248651730B80D0022617C /* Policy.m */; };
 		4CAB3D01173211AB002233C9 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB3D00173211AB002233C9 /* car1.png */; };
+		4CAB3D0317321D0C002233C9 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB3D0217321D0C002233C9 /* GoogleMaps.bundle */; };
 		4CDF53C5171F5D9E00591C39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDF53C4171F5D9E00591C39 /* UIKit.framework */; };
 		4CDF53C7171F5D9E00591C39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDF53C6171F5D9E00591C39 /* Foundation.framework */; };
 		4CDF53C9171F5D9E00591C39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDF53C8171F5D9E00591C39 /* CoreGraphics.framework */; };
@@ -72,6 +73,7 @@
 		4C5248641730B80D0022617C /* Policy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
 		4C5248651730B80D0022617C /* Policy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Policy.m; sourceTree = "<group>"; };
 		4CAB3D00173211AB002233C9 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
+		4CAB3D0217321D0C002233C9 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "MyInsurance/GoogleMaps-iOS-1.2.2/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		4CDF53C1171F5D9E00591C39 /* MyInsurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInsurance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDF53C4171F5D9E00591C39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4CDF53C6171F5D9E00591C39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -226,6 +228,7 @@
 		4CDF53C3171F5D9E00591C39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB3D0217321D0C002233C9 /* GoogleMaps.bundle */,
 				4CF0E64F1731364D00B2EBA0 /* GoogleMaps.framework */,
 				4CF0E5C917312F6100B2EBA0 /* CoreData.framework */,
 				4CF0E5CA17312F6100B2EBA0 /* CoreLocation.framework */,
@@ -428,6 +431,7 @@
 				4CF0E5AA1731264A00B2EBA0 /* zbar-helpicons.png in Resources */,
 				4CF0E5AB1731264A00B2EBA0 /* zbar-samples.png in Resources */,
 				4CAB3D01173211AB002233C9 /* car1.png in Resources */,
+				4CAB3D0317321D0C002233C9 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "Policy.h"
 #import "Properties.h"
+#import "Driver.h"
 
 @implementation Policy
 
@@ -28,27 +29,95 @@
     [alertView show];
 }
 
-//-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
-//   attributes: (NSDictionary *)attributeDict{
-//    if ([elementName isEqualToString:@"policy_number"]) {
-//        self.policyNumElementFound = YES;
-//    }
-//    
-//}
-//
-//- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-//    
-//    if (self.policyNumElementFound) {
-//        NSLog(@"policy_num:%@",string);
-//        NSUserDefaults *nsUserDefaults = [NSUserDefaults standardUserDefaults];
-//        [nsUserDefaults setValue:string forKey:@"policyNumber"];
-//        [nsUserDefaults synchronize];
-//        self.policyNumElementFound = NO;
-//    }
-//}
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    //<driver>
+    //<address1>123 Fake Street</address1>
+    //<city>San Leandro</city>
+    //<dob>12/12/2013</dob>
+    //<full_name>Michael David Hari</full_name>
+    //<license_id>D2345151</license_id>
+    //<state>CA</state>
+    //<zipcode>94579</zipcode>
+    //</driver>
+    if([elementName isEqualToString:@"driver"]){
+        self.inDriverTag=YES;
+        self.driver = [[Driver alloc]init];
+    }
+    if ([elementName isEqualToString:@"address1"]) {
+        self.inAddr1Tag=YES;
+    }
+    
+    if([elementName isEqualToString:@"city"]){
+        self.inCityTag=YES;
+    }
+    
+    if([elementName isEqualToString:@"dob"]){
+        self.inDOBTag=YES;
+    }
+
+    if([elementName isEqualToString:@"full_name"]){
+        self.inFullNameTag=YES;
+    }
+
+if([elementName isEqualToString:@"license_id"]){
+    self.inLicenseIdTag=YES;
+    
+}
+
+if([elementName isEqualToString:@"state"]){
+    self.inStateTag=YES;
+    
+}
+
+if([elementName isEqualToString:@"zipcode"]){
+    self.inZipcodeTag=YES;
+    
+}
+
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+    
+    if([elementName isEqualToString:@"driver"]){
+        [self.drivers addObject:self.driver];
+    }
+}
+
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    if(self.inAddr1Tag)
+        self.driver.address1=string;
+    
+    
+    if(self.inDOBTag)
+        self.driver.dob=string;
+    
+    if(self.inCityTag)
+        self.driver.city=string;
+        
+    if(self.inFullNameTag)
+        self.driver.fullName=string;
+    
+    if(self.inLicenseIdTag)
+        self.driver.licenseId=string;
+    
+    if(self.inStateTag)
+        self.driver.state=string;
+        
+    if(self.inZipcodeTag)
+        self.driver.zipcode=string;
+    
+}
 
 -(void)getDataFromWebService{
     
+//    self.isAddr1Tag=NO;
+//    self.isCityTag=NO;
+//    self.isFullNameTag=NO;
+//    self.isLicenseIdTag=NO;
+//    self.isStateTag=NO;
+//    self.isZipcodeTag=NO;
     
     NSString *webserviceURL = [NSString stringWithFormat:@"%@/policy?policyNumber=%@",BASE_WEBSERVICE_URL,[[NSUserDefaults standardUserDefaults] valueForKey:@"policyNumber"]];
     

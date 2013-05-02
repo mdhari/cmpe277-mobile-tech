@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Driver.h"
 
 @interface Policy : NSObject<NSXMLParserDelegate>
 
@@ -23,7 +24,15 @@
 //<zipcode>94579</zipcode>
 //</driver>
 
-//@property(nonatomic) BOOL
+@property(strong,nonatomic) Driver *driver;
+@property(nonatomic) BOOL inDriverTag;
+@property(nonatomic) BOOL inAddr1Tag;
+@property(nonatomic) BOOL inDOBTag;
+@property(nonatomic) BOOL inCityTag;
+@property(nonatomic) BOOL inFullNameTag;
+@property(nonatomic) BOOL inLicenseIdTag;
+@property(nonatomic) BOOL inStateTag;
+@property(nonatomic) BOOL inZipcodeTag;
 
 -(void)getDataFromWebService;
 

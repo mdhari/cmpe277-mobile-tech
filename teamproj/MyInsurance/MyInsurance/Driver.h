@@ -17,6 +17,6 @@
 @property(strong,nonatomic) NSString *city;
 @property(strong,nonatomic) NSString *state;
 @property(nonatomic) int zipcode;
-@property(strong,nonatomic) NSDate *dob;
+@property(strong,nonatomic) NSString *dob;
 
 @end
