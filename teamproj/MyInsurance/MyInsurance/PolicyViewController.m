@@ -11,6 +11,7 @@
 #import "Vehicle.h"
 #import "Driver.h"
 #import "VehicleInfoViewController.h"
+#import "DriverInfoViewController.h"
 
 @interface PolicyViewController ()
 
@@ -124,7 +125,7 @@
             break;
         case 1:
             cell = [tableView dequeueReusableCellWithIdentifier:@"simpleCell" forIndexPath:indexPath];
-            cell.textLabel.text=[self.policy.vehicles[indexPath.row] make];
+            cell.textLabel.text=[NSString stringWithFormat:@"%@ %@",[self.policy.vehicles[indexPath.row] make],[self.policy.vehicles[indexPath.row] model]];
             break;
     }
     
@@ -171,6 +172,22 @@
 */
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"driverInfoSegue"]){
+        DriverInfoViewController *driverInfoViewController = [segue destinationViewController];
+        Driver *driver = sender;
+        driverInfoViewController.licenseIDText=driver.licenseId;
+        driverInfoViewController.fullNameText=driver.fullName;
+        driverInfoViewController.addressText=driver.address1;
+        driverInfoViewController.cityText=driver.city;
+        driverInfoViewController.stateText=driver.state;
+        driverInfoViewController.zipcodeText=[@(driver.zipcode) stringValue];
+        driverInfoViewController.dobText=driver.dob;
+    
+        
+    }
+    
+    
+    
     if([segue.identifier isEqualToString:@"vehicleInfoSegue"]){
         VehicleInfoViewController *vehicleInfoViewController = [segue destinationViewController];
         Vehicle *vehicle = sender;
@@ -178,6 +195,8 @@
         vehicleInfoViewController.makeText=vehicle.make;
         vehicleInfoViewController.modelText=vehicle.model;
         vehicleInfoViewController.yearText=[@(vehicle.year) stringValue];
+        
+        
     }
 }
 
@@ -185,9 +204,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([indexPath section] == 1){
+    if([indexPath section] == 0){
+        [self performSegueWithIdentifier:@"driverInfoSegue" sender:self.policy.drivers[indexPath.row]];
+    }
+    else if([indexPath section] == 1){
         [self performSegueWithIdentifier:@"vehicleInfoSegue" sender:self.policy.vehicles[indexPath.row]];
     }
 }
+
+
 
 @end

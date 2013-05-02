@@ -51,8 +51,10 @@
     NSString * urlString = [url absoluteString];
     //keyword=coffee&location=37.787930,-122.4074990&radius=5000&sensor=false&key=AIzaSyCcC9pmri9XGOgyhjoHQq37cmcbfhjfghf6bBZe80
     NSString *keyword=@"bodyshop";
-    NSString * location =@"37.787930,-122.4074990";
-    int radius=1000;
+    //37.33689980
+    //2013-05-02 00:27:24.848 MyInsurance[8150:907] -121.88179029
+    NSString * location =@"37.33689980,-121.88179029";
+    int radius=2000;
     NSString *sensor=@"false";
     NSString *key=@"AIzaSyBeTmoeydWQFwqU4Yc92LkjyrS46I-I9Oc";
     NSString *newURL = [urlString stringByAppendingFormat:@"keyword=%@&location=%@&radius=%d&sensor=%@&key=%@",keyword,location,radius,sensor,key];
@@ -112,7 +114,9 @@
     }
     
     //GMSCameraPosition *camera =[self cameraDisplayingAllVisibleMarkers];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.location.coordinate.latitude longitude:self.location.coordinate.longitude zoom:14];
+    //37.33684496
+    //2013-05-02 00:05:52.432 MyInsurance[7963:907] -121.88170701
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:37.78583400 longitude:-122.40641700 zoom:14];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.view = mapView;
     [self.mapView animateToCameraPosition:camera];
@@ -124,8 +128,8 @@
 
 -(void) drawMarkers:(NSMutableArray *)array{
     
-    double sjsuLatitude = 37.785834;
-    double sjsuLongitude =  -122.40641700;
+    double sjsuLatitude = 37.33684821;
+    double sjsuLongitude = -121.88169113;
     CLLocationCoordinate2D sjsuCoord = CLLocationCoordinate2DMake(sjsuLatitude,sjsuLongitude);
     GMSMarker *sjsuMarker =[[GMSMarker alloc]init];
     [sjsuMarker setPosition: sjsuCoord];
