@@ -10,6 +10,7 @@
 #import "Policy.h"
 #import "Vehicle.h"
 #import "Driver.h"
+#import "VehicleInfoViewController.h"
 
 @interface PolicyViewController ()
 
@@ -169,17 +170,24 @@
 }
 */
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"vehicleInfoSegue"]){
+        VehicleInfoViewController *vehicleInfoViewController = [segue destinationViewController];
+        Vehicle *vehicle = sender;
+        vehicleInfoViewController.vinText=vehicle.vin;
+        vehicleInfoViewController.makeText=vehicle.make;
+        vehicleInfoViewController.modelText=vehicle.model;
+        vehicleInfoViewController.yearText=[@(vehicle.year) stringValue];
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if([indexPath section] == 1){
+        [self performSegueWithIdentifier:@"vehicleInfoSegue" sender:self.policy.vehicles[indexPath.row]];
+    }
 }
 
 @end
